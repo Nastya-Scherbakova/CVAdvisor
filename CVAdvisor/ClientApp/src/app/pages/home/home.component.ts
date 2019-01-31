@@ -9,10 +9,8 @@ import { TextSender } from 'src/app/models/text-sender.model';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  private advicesObservable: Observable<any>;
-  public advicesObj: any;
-  public text = '';
-  public position = '';
+  private advicesObservable: Observable<TextSender>;
+  public advicesObj: TextSender;
   constructor(private adviceService: AdviceService) {
   }
 
@@ -27,11 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   sendText() {
-    const newSend = new TextSender();
-    newSend.kw = this.advicesObj.kw ? this.advicesObj.kw : [];
-    newSend.kw_d = this.advicesObj.kw_d ? this.advicesObj.kw_d : [];
-    newSend.position_name = this.position;
-    newSend.text = this.text;
-    this.adviceService.sendText(newSend);
+    this.adviceService.sendText(this.advicesObj);
   }
 }

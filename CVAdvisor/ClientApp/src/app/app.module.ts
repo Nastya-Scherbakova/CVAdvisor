@@ -13,6 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import { ChipsComponent } from './components/chips/chips.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     BrowserAnimationsModule,
     MatInputModule,
     MatChipsModule,
+    MatBadgeModule,
+    MatIconModule,
     DragDropModule,
     MatFormFieldModule,
     MatButtonModule,

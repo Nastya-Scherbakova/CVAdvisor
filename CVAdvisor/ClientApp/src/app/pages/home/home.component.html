@@ -2,10 +2,10 @@
 <div class="container row">
   <div class="col">
     <mat-form-field>
-      <input matInput [(ngModel)]="position" placeholder="Position"/>
+      <input matInput [(ngModel)]="advicesObj.position_name" placeholder="Position"/>
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput [(ngModel)]="text" placeholder="Text"></textarea>
+      <textarea matInput [(ngModel)]="advicesObj.text" placeholder="Text"></textarea>
     </mat-form-field>
     <button mat-stroked-button (click)="sendText()">Check</button>
   </div>

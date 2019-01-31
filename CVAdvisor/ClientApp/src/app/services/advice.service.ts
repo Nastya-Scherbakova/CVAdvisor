@@ -7,7 +7,7 @@ import { TextSender } from '../models/text-sender.model';
 })
 export class AdviceService {
   private readonly connection;
-  private advicesBehaviour = new BehaviorSubject([]);
+  private advicesBehaviour = new BehaviorSubject<TextSender>(new TextSender());
   constructor() {
     this.connection = new signalR.HubConnectionBuilder()
     .withUrl('/hub')
@@ -22,7 +22,7 @@ export class AdviceService {
     });
    }
 
-   subscribeOnAdvices(): Observable<any> {
+   subscribeOnAdvices(): Observable<TextSender> {
      return this.advicesBehaviour.asObservable();
    }
 
