@@ -1,13 +1,21 @@
+
+.group-block
+  padding: 10px
+.edit-buttons
+  display: flex
+  justify-content: space-between
 .list-box
-  width: 400px
+  max-width: 400px
+  min-width: 200px
   min-height: 100px
+  height: calc(100% - 50px)
   background-color: #fff
   border-radius: 4px
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15)
   display: flex
   flex-direction: row
   flex-wrap: wrap
-  align-items: center
+  align-items: baseline
   padding: 10px
 .list-item
   background-color: #e0e0e0
@@ -48,3 +56,7 @@ h5
 .hidden
   .mat-badge-content
     display: none !important
+
+.mat-form-field
+  display: block !important
+  max-width: 400px

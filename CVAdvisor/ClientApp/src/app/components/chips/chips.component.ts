@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitte
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { TextSender } from 'src/app/models/text-sender.model';
 import { WordObject } from 'src/app/models/word-object.model';
+import { AdviceService } from 'src/app/services/advice.service';
 
 
 @Component({
@@ -17,9 +18,13 @@ export class ChipsComponent implements OnInit {
   tempValue: string;
   edit = false;
   indxEdit: number;
-  constructor() { }
+  constructor(private adviceService: AdviceService) { }
 
   ngOnInit() {
+  }
+
+  sendText() {
+    this.adviceService.sendText(this.chipsObj);
   }
 
   addWord() {
@@ -58,13 +63,19 @@ export class ChipsComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      if(event.container.id === 'cdk-drop-list-3') return;
+      if(event.container.id === 'cdk-drop-list-0') return;
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
     }
     this.chipsObjChange.emit(this.chipsObj);
+  }
+
+  moveToIgnored(item: WordObject) {
+    let indx = this.chipsObj.kw_m.indexOf(item);
+    this.chipsObj.kw_m.splice(indx, 1);
+    this.chipsObj.kw_d.push(item);
   }
 
 }

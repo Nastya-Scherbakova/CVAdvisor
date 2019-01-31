@@ -1,15 +1,6 @@
 <h1>CV checker</h1>
 <div class="container row">
-  <div class="col">
-    <mat-form-field>
-      <input matInput [(ngModel)]="advicesObj.position_name" placeholder="Position"/>
-    </mat-form-field>
-    <mat-form-field>
-      <textarea matInput [(ngModel)]="advicesObj.text" placeholder="Text"></textarea>
-    </mat-form-field>
-    <button mat-stroked-button (click)="sendText()">Check</button>
-  </div>
-  <div class="col">
     <app-chips [(chipsObj)]="advicesObj"></app-chips>
-  </div>
+  
+    
 </div>

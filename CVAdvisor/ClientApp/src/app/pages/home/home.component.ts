@@ -24,7 +24,5 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  sendText() {
-    this.adviceService.sendText(this.advicesObj);
-  }
+  
 }
