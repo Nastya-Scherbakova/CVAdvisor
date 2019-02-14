@@ -9,19 +9,12 @@ import { TextSender } from 'src/app/models/text-sender.model';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  private advicesObservable: Observable<TextSender>;
-  public advicesObj: TextSender;
+
   constructor(private adviceService: AdviceService) {
   }
 
   ngOnInit() {
-    this.advicesObservable = this.adviceService.subscribeOnAdvices();
-    this.advicesObservable.subscribe(advices => {
-      if (advices) {
-        this.advicesObj = advices;
-      }
-
-    });
+   
   }
 
   

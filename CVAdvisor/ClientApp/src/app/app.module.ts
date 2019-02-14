@@ -14,7 +14,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ChipsComponent } from './components/chips/chips.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatBadgeModule} from '@angular/material/badge';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatChipsModule,
     MatBadgeModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     DragDropModule,
     MatFormFieldModule,
     MatButtonModule,

@@ -1,14 +1,16 @@
 <div class="group-box" cdkDropListGroup>
   <div class="row">
-      <div class="group-block col">
-          <mat-form-field>
-            <input matInput [(ngModel)]="chipsObj.position_name" placeholder="Position" />
-          </mat-form-field>
-          <mat-form-field>
-            <textarea matInput [(ngModel)]="chipsObj.text" placeholder="Text"></textarea>
-          </mat-form-field>
-          <button mat-stroked-button (click)="sendText()">Check</button>
-        </div>
+    <div class="group-block col">
+      <mat-form-field>
+        <input matInput [(ngModel)]="chipsObj.position_name" placeholder="Position" />
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput [(ngModel)]="chipsObj.text" placeholder="Text"></textarea>
+      </mat-form-field>
+      <button mat-stroked-button (click)="sendText()">Check</button>
+      <button mat-stroked-button color="warn" (click)="clean()">Clean All</button>
+      <mat-spinner *ngIf="loading"></mat-spinner>
+    </div>
       <div class="group-block col">
           <h5>Recommended words by ML: </h5>
           <div class="list-box" cdkDropList [cdkDropListData]="chipsObj.kw_r" (cdkDropListDropped)="drop($event)">

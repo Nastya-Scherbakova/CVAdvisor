@@ -5,25 +5,36 @@ import { WordObject } from 'src/app/models/word-object.model';
 import { AdviceService } from 'src/app/services/advice.service';
 
 
+
 @Component({
   selector: 'app-chips',
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.sass']
 })
 export class ChipsComponent implements OnInit {
-  @Input()
+
   chipsObj: TextSender;
-  @Output()
+
   chipsObjChange: EventEmitter<any> = new EventEmitter<any>();
   tempValue: string;
   edit = false;
+  private advicesObservable: Observable<TextSender>;
+  loading: boolean;
   indxEdit: number;
   constructor(private adviceService: AdviceService) { }
 
   ngOnInit() {
+    this.advicesObservable = this.adviceService.subscribeOnAdvices();
+    this.advicesObservable.subscribe(advices => {
+      if (advices) {
+        this.chipsObj = advices;
+      }
+      this.loading = false;
+    });
   }
 
   sendText() {
+    this.loading = true;
     this.adviceService.sendText(this.chipsObj);
   }
 
@@ -72,10 +83,15 @@ export class ChipsComponent implements OnInit {
     this.chipsObjChange.emit(this.chipsObj);
   }
 
+  clean() {
+    this.chipsObj = new TextSender();
+  }
+
   moveToIgnored(item: WordObject) {
     let indx = this.chipsObj.kw_m.indexOf(item);
     this.chipsObj.kw_m.splice(indx, 1);
     this.chipsObj.kw_d.push(item);
   }
 
+  
 }

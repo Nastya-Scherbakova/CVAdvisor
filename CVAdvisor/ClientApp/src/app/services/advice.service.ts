@@ -26,7 +26,7 @@ export class AdviceService {
      return this.advicesBehaviour.asObservable();
    }
 
-   sendText(send: TextSender) {
+  sendText(send: TextSender) {
     const sendString = JSON.stringify(send);
     this.connection.send('checkText', sendString).then(() => {
       console.log('send: ' + sendString);
